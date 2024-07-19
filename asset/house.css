@@ -1,0 +1,431 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/* ******Sign-up and Login ******* */
+.sign_container {
+    position: relative;
+    display: flex;
+    width: 60%;
+    margin: 5% auto;
+    box-shadow: 10px 10px 10px 0 rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.head_container {
+    width: 45%;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    background-image: url("./images/images\ \(6\).jpeg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.text_container {
+    text-align: left;
+    margin: 25% 7% 0 7%;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 7% 5%;
+    color: white;
+    backdrop-filter: blur(3px);
+    border-radius: 7px;
+}
+.sign_h1 {
+    font-weight: 300;
+}
+.text2 {
+    margin-top: 15%;
+    font-size: 12px;
+}
+.input_container {
+    width: 55%;
+    padding: 10% 5% 10% 5%;
+}
+
+.close_btn {
+    position: absolute;
+    top: 0;
+    right: 10px;
+    font-size: 25px;
+    color: black;
+}
+.close_btn:hover {
+    transform: scale(1.5);
+    transition: 0.3s ease-in-out;
+}
+
+.sign_btn {
+    margin-top: 25px;
+}
+span {
+     color: rgb(1, 192, 128);
+}
+
+/******** Portfolio page *********/
+html {
+    scroll-behavior: smooth;
+}
+/* Hero section */
+.start {
+    background-color: rgb(2, 100, 2);
+    padding: 10px 20px;
+    border-radius: 20px;
+    transition: 0.3s;
+}
+.start:hover {
+    background-color: rgb(2, 141, 2);
+}
+.hero_text {
+    color: rgb(197, 197, 197);
+}
+.hero_h1 {
+    font-size: 45px;
+    font-weight: bold;
+}
+
+/* About page */
+.about {
+    background-color: rgb(230, 229, 229);
+}
+.sub_tittle {
+    color: rgb(2, 100, 2);
+}
+.about_side_text {
+    background-color: rgb(248, 243, 243);
+    border-radius: 7px;
+}
+.about_btn_style {
+    background-color: rgb(2, 120, 2);
+    width: 33.4%;
+    padding: 10px 0;
+    border: none;
+    font-weight: bold;
+    margin-right: -5px;
+}
+.about_btn_border_left {
+    border-top-left-radius: 7px;
+}
+.about_btn_border_right {
+    border-top-right-radius: 7px;
+}
+.about_btn_style:hover {
+    background-color: rgb(2, 141, 2);
+    transition: 0.2s;
+}
+.about_btn_style.active {
+    background-color: rgb(248, 243, 243);
+}
+.about_content {
+    display: none;
+}
+.about_content.active {
+    display: block;
+}
+
+/* About page gallery */
+.cover{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.gallery{
+    width: 100%;
+}
+.gallery_container {
+    width: 86%;
+    height: 200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+.gallery_item {
+    height: 110px;
+    position: absolute;
+    transition: all 0.3s ease-in-out;
+    width: 40%;
+    border-radius: 15px;
+    background-size: contain;
+    opacity: 0;
+    z-index: 0;
+}
+.gallery_item1 {
+    left: 15%;
+    opacity: .4;
+    transform: translateX(-50%);
+}
+.gallery_item2, .gallery_item4 {
+    opacity: 0.8;
+    z-index: 1;
+    height: 150px;
+    width: 50%;
+}
+.gallery_item2 {
+    left: 30%;
+    transform: translateX(-50%);
+}
+.gallery_item3 {
+    box-shadow: -2px 5px 33px 6px rgba(0, 0, 0,0.35);
+    height: 190px;
+    opacity: 1;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    z-index: 2;
+}
+.gallery_item3:hover {
+    width: 90%;
+    height: 250px;
+}
+.gallery_item4 {
+    left: 70%;
+    transform: translateX(-50%);
+}
+.gallery_item5{
+    left: 85%;
+    opacity: .4;
+    transform: translateX(-50%);
+}
+.gallery_controls {
+    display: flex;
+    justify-content: center;
+    margin: 25px 0;
+    height: 100px;
+}
+.gallery_controls button{
+    background-color: transparent;
+    color: rgb(2, 100, 2);
+    border: 0;
+    cursor: pointer;
+    font-size: 30px;
+    margin: 0 50px;
+    padding: 0 12px;
+    text-transform: capitalize;
+}
+.gallery_controls_button:focus {
+    outline: none;
+}
+.gallery_controlsprevious {
+    position: relative;
+}
+.gallery_controlsprevious::before {
+    border: solid rgb(2, 100, 2);
+    border-width: 0 5px 5px 0;
+    content: " ";
+    display: inline-block;
+    height: 5px;
+    left: -30px;
+    padding: 10px;
+    position: absolute;
+    top: 25%;
+    transform: rotate(135deg) translateY(-50%);
+    transition: left 0.15s ease-in-out;
+    width: 5px;
+}
+.gallery_controlsprevious:hover::before {
+    left: -40px;
+}
+.gallery_controlsnext {
+    position: relative;
+}
+.gallery_controlsnext::before {
+    border: solid rgb(2, 100, 2);
+    border-width: 0 5px 5px 0;
+    content: "";
+    display: inline-block;
+    height: 5px;
+    right: -30px;
+    padding: 10px;
+    position: absolute;
+    top: 45px;
+    transform: rotate(-45deg) translateY(-50%);
+    transition: right 0.15s ease-in-out;
+    width: 5px;
+}
+.gallery_controlsnext:hover::before {
+    right: -40px;
+}
+.gallery_nav {
+    bottom: -15px;
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+    position: absolute;
+    width: 100%;
+}
+.gallery_nav li {
+    background: rgb(205, 204, 204);
+    border-radius: 50%;
+    height: 10px;
+    margin: 0 16px;
+    width: 10px;
+}
+.gallery_nav li.gallery_item_selected {
+    background: rgb(85, 85, 85);
+}
+
+/* Service section */
+.service_text {
+    background-color: rgb(230, 229, 229);
+    padding: 15px;
+    min-height: 250px;
+    border-radius: 20px;
+}
+
+/* Contact us section */
+.contact {
+    background-color: rgb(230, 229, 229);
+}
+.contact_input {
+    border: none;
+}
+.contact_input:focus {
+    box-shadow: none;
+}
+.contact_img_background {
+    background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url("./images/pexels1.jpg");
+    position: relative;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 10px;
+    height: 400px;
+}
+.contact_text {
+    color: whitesmoke;
+    position: absolute;
+    bottom: 0;
+    left: 5%;
+    overflow-wrap: break-word;
+}
+.contact_btn {
+    background-color: rgb(2, 100, 2);
+    padding: 10px 25px;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+.contact_btn:hover {
+    background-color: rgb(2, 141, 2);
+}
+
+/* Footer Styling */
+footer {
+    background-color: rgb(2, 120, 2);
+    color: rgb(224, 224, 224)
+}
+.footer_link {
+    color: rgb(224, 224, 224);
+    margin-left: -15px;
+}
+.footer_list>li {
+    list-style: none;
+    line-height: 30px;
+}
+.footer_wrap {
+    overflow-wrap: break-word;
+}
+.copyright {
+    font-size: 12px;
+}
+
+/* Reveal on scroll */
+.reveal {
+    position: relative;
+    transform: translateY(150px);
+    opacity: 0;
+    transition: all 2s ease;
+}
+.reveal.active {
+    transform: translateY(0px);
+    opacity: 1;
+}
+
+@media (max-width:992px) and (min-width:768px) {
+    .gallery_item3 {
+        width: 75%;
+        height: 150px;
+    }
+    .gallery_item2,.gallery_item4 {
+        height: 120px;
+        width: 60%;
+    }
+    .gallery_item1,.gallery_item5 {
+        height: 100px;
+        width: 50%;
+    }
+    .gallery_controls button{
+        margin: 0 35px;
+    }
+    .gallery_item3:hover {
+        width: 100%;
+    }
+
+    .service_text {
+        min-height: 400px;
+    }
+    
+}
+@media (max-width:993px) {
+    .about_btn_style {
+        width: 33.4%;
+        padding: 10px 0;
+        font-weight: bold;
+        margin-right: -5px;
+        font-size: 12px;
+    }
+}
+
+@media (max-width:420px) {
+    .hero_h1 {
+        font-size: 30px;
+    }
+    .gallery_item3 {
+        width: 75%;
+        height: 150px;
+    }
+    .gallery_item2,.gallery_item4 {
+        height: 120px;
+        width: 60%;
+    }
+    .gallery_item1,.gallery_item5 {
+        height: 100px;
+        width: 50%;
+    }
+    .gallery_controls button{
+        margin: 0 35px;
+        font-size: 20px;
+
+    }
+}
+
+@media (max-width:388px) {
+    .hero_h1 {
+        font-size: 25px;
+    }
+    .start {
+        font-size: 12px;
+    }
+    .remove_br {
+        display: none;
+    }
+    .gallery_item3:hover {
+        width: 100%;
+    }
+}
+
+@media (max-width:303px) {
+    .hero_h1 {
+        font-size: 20px;
+    }
+    .start {
+        padding: 7px 15px;
+    }
+    .gallery_controls button{
+        margin: 0 30px;
+        font-size: 15px;
+    }
+}

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login page</title>
+    <link rel="stylesheet" href="./asset/house.css">
+    <style>
+        .text_container {
+            margin: 15% 7% 0 7%;
+        }
+        .div_flex {
+            display: flex;
+            justify-content: space-between;
+        }
+        .check_container {
+            display: flex;
+        }
+        input {
+            display: block;
+            width: 100%;
+            padding: 10px 0;
+            margin: 18px 0;
+            border: none;
+            border-bottom: 1px solid black;
+            outline: none;
+        }
+        input[type="checkbox"] {
+            width: auto;
+            display: inline;
+            margin-right: 5px;
+            margin-top: 2px;
+        }
+        a {
+            text-decoration: none;
+            color: rgb(2, 156, 105);
+        }
+        .remember {
+            margin-left: 3px;
+        }
+        .login {
+            background-color: rgb(1, 192, 128);
+            color: white;
+            padding: 7px 25px;
+            border-radius: 15px;
+            margin-right: 5px;
+            border: none;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .login:hover {
+            background-color: rgb(69, 228, 175);
+        }
+
+        @media (max-width: 950px) {
+            .sign_container {
+                flex-direction: column;
+            }
+            .head_container {
+                width: 100%;
+                height: 220px;
+            }
+            .input_container {
+                width: 100%;
+            }
+            .text_container {
+               margin: 7% 12% 3% 12%;
+               padding: 3%;
+            }
+            .text2 {
+               margin-top: 5%;
+            }
+        }
+
+        @media (max-width: 560px) {
+            .sign_container {
+                width: 90%;
+            }
+        }
+
+        @media (max-width: 395px) {
+            .sign_container {
+                width: 100%;
+            }
+            .text_container {
+               margin: 7% 7% 3% 7%;
+               padding: 3%;
+            }
+        }
+        
+        @media (max-width: 280px) {
+            .head_container {
+                width: 100%;
+                height: 170px;
+            }
+            h1 {
+                font-size: 25px;
+            }
+            .text1 {
+                font-size: 12px;
+            }
+            .text2 {
+               font-size: 10px;
+            }
+            input::placeholder {
+                font-size: 10px;
+            }
+            input[type="checkbox"] {
+                width: 11px;
+                height: 11px;
+                margin-right: 2px;
+            }
+            .remember {
+                font-size: 14px;
+            }
+            .forgot {
+                font-size: 14px;
+            }
+            .signup {
+                font-size: 13px;
+            }
+            .login {
+                font-size: 13px;
+            }
+            .or {
+                font-size: 12px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="sign_container">
+        <a class="close_btn" href="./house.html">&times;</a>
+        <div class="head_container">
+            <div class="text_container">
+                <h1 class="sign_h1">Welcome Back</h1>
+                <p class="text1">Enter your details to login</p>
+                <div class="text2">
+                    <p>Don't have an account&quest;</p>
+                    <h3>Sign in</h3>
+                </div>
+            </div>
+        </div>
+        <div class="input_container">
+            <form action="./house.html" method="post">
+                <input type="text" name="fullname" placeholder="FULLNAME" required>
+                <input type="password" name="password" placeholder="PASSWORD" required>
+                <div class="div_flex">
+                    <div class="check_container">
+                        <input type="checkbox" name="checkbox" id="checkbox">
+                        <label for="checkbox" class="remember"><h5>Remember me</h5></label><br>
+                    </div>
+                    <a href="#" class="forgot"><h5>Forgot Password&quest;</h5></a>
+                </div>
+                <div class="sign_btn">
+                    <button type="submit" class="login">Login</button>
+                    <!--<a class="login" href="">Login</a>-->
+                    <span class="or">or</span>
+                    <a class="signup" href="./signup.html">Sign up</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

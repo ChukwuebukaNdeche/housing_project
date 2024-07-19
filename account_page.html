@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account</title>
+    <!--<link rel="stylesheet" href="./asset/bootstrap-5.0.2/dist/css/bootstrap.css">-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <!--<link rel="stylesheet" href="./asset/fonts/css/all.min.css">-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        .account-nav {
+            position: fixed;
+            width: 100%;
+            background-color: rgb(251, 247, 247);
+            padding: 5px 0 5px 15px;
+        }
+        .exit-acct {
+            font-size: 20px;
+            color: rgb(1, 144, 1);
+            transition: transform 0.2s;
+        }
+        .exit-acct:hover {
+            transform: translateX(-5px);
+        }
+        .icon {
+            font-size: 60px;
+            background-color: rgb(189, 188, 188);
+            width: 130px;
+            height: 130px;
+            line-height: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            border: 3px solid rgb(216, 212, 212);
+            overflow: hidden;
+        }
+        .icon img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        .edit {
+            height: 30px;
+            width: 75px;
+            border-radius: 15px;
+            border: 1px solid rgb(216, 212, 212);
+            background-color: transparent;
+        }
+        .column {
+            border: 1px solid rgb(216, 212, 212);
+            border-radius: 20px;
+            margin-bottom: 10px;
+        }
+        .update-img {
+            background-color: rgb(5, 209, 5);
+            padding: 3px 0;
+            border-radius: 5px;
+            font-weight: bol;
+            display: block;
+            width: 130px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .update-img:hover {
+            background-color: rgb(7, 235, 7);
+        }
+        .input-file {
+            display: none;
+        }
+        .content {
+            margin-top: -10px;
+        }
+        .gap {
+            gap: 180px;
+        }
+        .password {
+            background-color: rgb(5, 209, 5);
+            padding: 2px 5px;
+            margin: 10px 0;
+            border-radius: 5px;
+            transition: all 0.2s;
+        }
+        .password:hover {
+            background-color: rgb(7, 235, 7);
+        }
+        .delete {
+            background-color: rgb(255, 4, 4);
+            border: none;
+            margin: 30px 0;
+            padding: 5px 10px;
+            color: white;
+        }
+
+        /* Personal Information */
+        .cover {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 143vh;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .display-pi {
+            display: none;
+        }
+        .cover .form-container {
+            width: 50%;
+            background-color: white;
+            padding: 15px;
+            border-radius: 10px;
+        }
+        .form-control:focus {
+            box-shadow: none;
+            border: 1px solid rgb(3, 197, 3);
+        }
+        .save-btn {
+            padding: 2px 15px;
+            border: none;
+            background-color: rgb(3, 197, 3);
+            color: white;
+            border-radius: 5px;
+            transition: all 0.2s;
+        }
+        .save-btn:hover {
+            background-color: rgb(4, 212, 4)
+        }
+        .cancel-btn {
+            border: none;
+            background-color: transparent;
+            color: rgb(1, 171, 1);
+            padding: 5px;
+        }
+
+        /* Change Password */
+        .change-pass {
+            width: 35%;
+            margin-bottom: 15px;
+        }
+        .save-password {
+            background-color: rgb(5, 209, 5);
+            padding: 2px 5px;
+            margin: 15px 0;
+            border-radius: 5px;
+            transition: all 0.2s;
+        }
+        .save-password:hover {
+            background-color: rgb(7, 235, 7);
+        }
+        .display-password {
+            display: none;
+        }
+        .cancel-password {
+            background-color: transparent;
+            padding: 2px 5px;
+            margin: 10px 0;
+            border: none;
+            color: rgb(1, 165, 1);
+        }
+
+        /* Delete Account */
+        .delete-cover {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 143vh;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+        }
+        .delete-form-container {
+            width: 50%;
+            background-color: white;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            margin-bottom: 100px;
+        }
+        .delete-btns {
+            display: flex;
+            justify-content: flex-end;
+            margin-top: 50px;
+            gap: 10px;
+        }
+        .delete-btns button {
+            padding: 3px 25px;
+            border-radius: 3px;
+        }
+        .no-delete {
+            border: 2px solid rgb(3, 180, 3);
+            background-color: transparent;
+            color: rgb(3, 171, 3);
+        }
+        .yes-delete {
+            background-color: red;
+            color: white;
+            border: none;
+            transition: all 0.2s;
+        }
+        .yes-delete:hover {
+            background-color: rgb(252, 69, 69);
+        }
+        .display-delete {
+            display: none;
+        }
+        
+
+        @media (max-width:768px) {
+            .gap {
+                flex-direction: column;
+                gap: 5px;
+            }
+        }
+        @media (max-width: 425px) {
+            .icon {
+                font-size: 50px;
+                width: 100px;
+                height: 100px;
+            }
+            .name {
+                font-size: 15px;
+            }
+        }
+        @media (max-width: 345px) {
+            .icon {
+                font-size: 40px;
+                width: 90px;
+                height: 90px;
+            }
+        }
+        /* Edit Pi */
+        @media (max-width: 614px) {
+            .cover .form-container {
+                width: 80%;
+            }
+            .pi-head {
+                font-size: 17px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="account-nav">
+        <a href="./listing.html"><i class="fa fa-arrow-left exit-acct"></i></a>
+    </nav>
+    <div class="container pt-5">
+        <h4 class="mb-5">My Account</h4>
+        <div class="row pb-5">
+            <div class="col-md-10 offset-md-1 p-3 column">
+                <div class="d-flex align-items-center">
+                    <div class="icon">
+                        <i class="fa fa-user"></i>
+                    </div>
+                    <h5 class="ms-2 mt-2 name">Emmanuel Ndeche</h5>
+                </div>
+    
+                <label for="input-file" class="update-img mt-3">Update Image</label>
+                <input type="file" name="input-file" id="input-file" accept="image/*" class="input-file">
+            </div>
+
+            <div class="col-md-10 offset-md-1 p-3 column">
+                <div class="d-flex justify-content-between">
+                    <h5 class="mb-4">Personal Information</h5>
+                    <button class="edit" id="edit-pi">Edit <i class="fa fa-edit ms-1"></i></button>
+                </div>
+
+                <p>Full Name</p>
+                <h6 class="content">Emmanuel Ndeche</h6>
+
+                <div class="d-flex gap">
+                    <div>
+                        <p>Email</p>
+                        <h6 class="content">emmanuelndeche@gmail.com</h6>
+                    </div>
+                    <div>
+                        <p>Phone Number</p>
+                        <h6 class="content">080855883399</h6>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-10 offset-md-1 p-3 column">
+                <div class="change-pas">
+                    <p>Password</p>
+                    <h6 class="content">123456778</h6>
+                    <button class="password">Change Password</button>
+                </div>
+
+                <div class="form-group change-pass display-password">
+                    <p>Change Password</p>
+                    <label for="password">Enter New Password</label>
+                    <input type="text" name="password" id="password" class="form-control">
+                    <button class="cancel-password">Cancel</button>
+                    <button class="save-password">Save Password</button>
+                </div>
+            </div>
+
+            <div class="col-md-10 offset-md-1">
+                <button class="delete">Delete Account</button></Account>
+            </div>
+            
+        </div>
+    </div>
+
+    <!-- Edit personal information -->
+     <div class="cover display-pi">
+        <div class="form-container">
+            <h5 class="mb-3 pi-head">Edit Your Personal Information</h5>
+            <form action="" class="form-group">
+                <div>
+                    <label for="fullname">Edit Your Full Name</label>
+                    <input type="text" name="fullname" id="fullname" class="form-control mb-2">
+                    <label for="email">Edit Your Email</label>
+                    <input type="email" name="email" id="email" class="form-control mb-2">
+                    <label for="Phone">Edit Phone Number</label>
+                    <input type="number" name="Phone" id="Phone" class="form-control mb-2">
+                </div>
+                <div class="btn-container d-flex justify-content-end gap-3 mt-3">
+                    <button class="cancel-btn">Cancel</button>
+                    <button class="save-btn">Save</button>
+                </div>
+            </form>
+        </div>
+     </div>
+
+     <!-- Delete Account -->
+     <div class="delete-cover display-delete">
+        <div class="delete-form-container">
+            <h5 class="mb-3">Are You Sure You Want To Delete Your account</h5>
+            <div class="delete-btns">
+                <button class="no-delete">No</button>
+                <button class="yes-delete">Yes</button>
+            </div>
+        </div>
+     </div>
+
+     <!-- Change Password -->
+     <!--<div class="cover display-pi">
+        <div class="form-container">
+            <h5 class="mb-3 pi-head">Edit Your Personal Information</h5>
+            <form action="" class="form-group">
+                <div>
+                    <label for="fullname">Edit Your Full Name</label>
+                    <input type="text" name="fullname" id="fullname" class="form-control mb-2">
+        
+                </div>
+                <div class="btn-container d-flex justify-content-end gap-3 mt-3">
+                    <button class="cancel-btn">Cancel</button>
+                    <button class="save-btn">Save</button>
+                </div>
+            </form>
+        </div>
+     </div>-->
+
+    <script>
+        //Display profile picture
+        let profilePics = document.querySelector('.icon');
+        let inputFile = document.querySelector('.input-file');
+
+        inputFile.addEventListener('change',(event) => {
+           // profilePics.src = URL.createObjectURL(inputFile.files[0])
+           let file = event.target.files[0];
+           if (file) {
+
+            let reader = new FileReader();
+            reader.onload = function(e) {
+                let profilePics = document.querySelector('.icon');
+                profilePics.innerHTML = `<img src="${e.target.result}" alt="user icon">`;
+            }
+            reader.readAsDataURL(file);
+           }
+        })
+
+        // Edit personal information
+        let editPi = document.getElementById('edit-pi');
+        editPi.addEventListener('click',()=> {
+            let cover = document.querySelector('.cover');
+            cover.classList.remove('display-pi');
+        })
+        document.querySelector('.cancel-btn').addEventListener('click',()=> {
+            cover.classList.add('diplay-pi');
+        });
+
+        //Change Password
+        document.querySelector('.password').addEventListener('click',()=> {
+            let changePass = document.querySelector('.change-pass');
+            let changePas = document.querySelector('.change-pas')
+            changePass.classList.remove('display-password')
+            changePas.classList.add('display-password')
+        })
+        document.querySelector('.cancel-password').addEventListener('click',()=> {
+            let changePass = document.querySelector('.change-pass');
+            let changePas = document.querySelector('.change-pas');
+            changePas.classList.remove('display-password')
+            changePass.classList.add('display-password')
+        })
+
+        //Delete Account
+        document.querySelector('.delete').addEventListener('click',()=> {
+            let deleteCover = document.querySelector('.delete-cover');
+            deleteCover.classList.remove('display-delete')
+        })
+        document.querySelector('.no-delete').addEventListener('click',()=> {
+            let deleteCover = document.querySelector('.delete-cover');
+            deleteCover.classList.add('display-delete')
+        })
+
+    </script>
+</body>
+</html>
