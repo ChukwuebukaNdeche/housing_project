@@ -199,7 +199,7 @@ function reveal(){
             reveal.classList.remove("active")
         }
     })
-}               
+};             
 
 
                                  
