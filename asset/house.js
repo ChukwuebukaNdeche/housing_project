@@ -176,7 +176,7 @@ class carousel {
             })
         })
     }
-}
+};
 
 const exampleCarousel = new carousel(galleryContainer, galleryItems, galleryControls);
 
