@@ -3,6 +3,9 @@
     padding: 0;
     box-sizing: border-box;
 }
+body {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
 /* ******Sign-up and Login ******* */
 .sign_container {
     position: relative;
@@ -72,17 +75,20 @@ html {
     background-color: rgb(2, 100, 2);
     padding: 10px 20px;
     border-radius: 20px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     transition: 0.3s;
 }
 .start:hover {
     background-color: rgb(2, 141, 2);
 }
 .hero_text {
-    color: rgb(197, 197, 197);
+    color: rgb(231, 231, 231);
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 .hero_h1 {
     font-size: 45px;
     font-weight: bold;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
 /* About page */
@@ -192,7 +198,7 @@ html {
 .gallery_controls {
     display: flex;
     justify-content: center;
-    margin: 25px 0;
+    margin: 10px 0;
     height: 100px;
 }
 .gallery_controls button{
@@ -378,12 +384,29 @@ footer {
         font-size: 12px;
     }
 }
+@media (max-width:768px) {
+    .gallery_controls button{
+        font-size: 15px;
+        margin-top: -17px;
+    }
+    .gallery_item3:hover {
+        width: 60%;
+        height: 190px;
+    }
+    body {
+        font-size: 13px;
+    }
+}
 
 @media (max-width:420px) {
     .hero_h1 {
         font-size: 30px;
     }
     .gallery_item3 {
+        width: 75%;
+        height: 150px;
+    }
+    .gallery_item3:hover {
         width: 75%;
         height: 150px;
     }
@@ -396,8 +419,7 @@ footer {
         width: 50%;
     }
     .gallery_controls button{
-        margin: 0 35px;
-        font-size: 20px;
+        font-size: 15px;
 
     }
 }
@@ -412,9 +434,6 @@ footer {
     .remove_br {
         display: none;
     }
-    .gallery_item3:hover {
-        width: 100%;
-    }
 }
 
 @media (max-width:303px) {
@@ -423,9 +442,5 @@ footer {
     }
     .start {
         padding: 7px 15px;
-    }
-    .gallery_controls button{
-        margin: 0 30px;
-        font-size: 15px;
     }
 }

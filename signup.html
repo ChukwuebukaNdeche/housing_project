@@ -62,7 +62,20 @@
             }
             .close_btn {
                 color: black;
-                background-color: rgba(225, 225, 225, 0.7);
+            }
+        }
+        @media (max-width: 768px) {
+            .sign_container {
+                box-shadow: none;
+            }
+            .close_btn:hover {
+                transform: scale(1);
+            }
+        }
+
+        @media (max-width: 560px) {
+            .sign_container {
+                width: 90%;
             }
         }
 

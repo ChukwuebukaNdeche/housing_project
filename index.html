@@ -31,6 +31,7 @@
             position: relative;
             z-index: 100;
             padding: 0.8% 6%;
+            font-family: 'Courier New', Courier, monospace;
         }
 
         .fixed-navbar {
@@ -60,7 +61,7 @@
 
         .nav_items>ul {
             display: flex;
-            gap: 15px;
+            gap: 10px;
         }
 
         .nav_items>ul>li {
@@ -166,13 +167,14 @@
             visibility: visible;
         }
 
-        @media (max-width:767px) {
+        @media (max-width:767.5px) {
             header {
                 background-attachment: scroll;
             }
             .nav_bar {
                 background-color: white;
                 box-shadow: 0 2px 4px rgb(0, 0, 0, .6);
+                font-size: 15px;
             }
 
             li a {
